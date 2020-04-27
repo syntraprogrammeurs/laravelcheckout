@@ -25,3 +25,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', function(){
    return view('admin.index');
 });
+Route::resource('/admin/users', 'AdminUsersController');
+Route::resource('/admin/brands', 'AdminBrandsController');
+Route::resource('/admin/categories', 'AdminCategoriesController');
+Route::resource('/admin/discounts', 'AdminDiscountsController');
+Route::resource('/admin/products', 'AdminProductsController');
+Route::resource('/admin/photos', 'AdminPhotosController');
