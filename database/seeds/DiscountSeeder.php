@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DiscountSeeder extends Seeder
 {
@@ -12,8 +13,9 @@ class DiscountSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('brands')->insert(['name' => 'DISCOUNT A','description'=>'Beschrijving DISCOUNT A']);
-        DB::table('brands')->insert(['name' => 'DISCOUNT B','description'=>'Beschrijving DISCOUNT B']);
-        DB::table('brands')->insert(['name' => 'DISCOUNT C','description'=>'Beschrijving DISCOUNT C']);
+        DB::table('discounts')->insert(['name' => 'DISCOUNT A','description'=>'Beschrijving DISCOUNT A', 'percent'=>5]);
+        DB::table('discounts')->insert(['name' => 'DISCOUNT B','description'=>'Beschrijving DISCOUNT B',
+            'percent'=>10]);
+        DB::table('discounts')->insert(['name' => 'DISCOUNT C','description'=>'Beschrijving DISCOUNT C','percent'=>15]);
     }
 }

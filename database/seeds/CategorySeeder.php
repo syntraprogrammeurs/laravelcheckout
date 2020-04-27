@@ -14,8 +14,8 @@ class CategorySeeder extends Seeder
     {
         //
 
-        DB::table('brands')->insert(['name' => 'SCHOENEN','description'=>'Beschrijving SCHOENEN']);
-        DB::table('brands')->insert(['name' => 'HEMDEN','description'=>'Beschrijving HEMDEN']);
-        DB::table('brands')->insert(['name' => 'SOKKEN','description'=>'Beschrijving SOKKEN']);
+        DB::table('categories')->insert(['name' => 'SCHOENEN','description'=>'Beschrijving SCHOENEN']);
+        DB::table('categories')->insert(['name' => 'HEMDEN','description'=>'Beschrijving HEMDEN']);
+        DB::table('categories')->insert(['name' => 'SOKKEN','description'=>'Beschrijving SOKKEN']);
     }
 }
