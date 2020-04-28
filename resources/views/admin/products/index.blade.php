@@ -7,8 +7,18 @@
     <hr>
     <div class="row">
         <div class="col-12">
-           {{-- filters--}}
-
+            <a href="{{route('products.create')}}" class="btn btn-outline-primary btn-sm border-left-primary">
+                <i class="fa fa-plus-circle"></i>
+                Create Product
+            </a>
+            <div class="d-flex justify-content-center">
+                <a href="{{route('products.index')}}"
+                   class="badge badge-primary m-1 p-3">All</a>
+                @foreach($brands as $brand)
+                    <a href="{{route('admin.productsPerBrand', $brand->id)}}"
+                       class="badge badge-primary m-1 p-3">{{$brand->name}}</a>
+                @endforeach
+            </div>
         </div>
         <div class="col-12 mt-3">
             <table class="table table-bordered table-hover table-sm shadow rounded" id="brands-table">
@@ -28,6 +38,9 @@
                 <tbody>
                 @if($products)
                     @foreach($products as $product)
+                        <tr>
+
+
                         <td>{{$product->id}}</td>
                         <td><img height="60" src="{{$product->photo ? asset('/images/products/' . $product->photo->file) : 'GEEN FOTOMOMENTEEL'}}" alt=""></td>
                         <td>{{$product->category ? $product->category->name : 'GEEN CATEGORY'}}</td>
@@ -39,6 +52,7 @@
                         <td>{{$product->price}}</td>
                         <td>{{$product->created_at}}</td>
                         <td>{{$product->updated_at}}</td>
+                        </tr>
                     @endforeach
                     @endif
                 </tbody>
