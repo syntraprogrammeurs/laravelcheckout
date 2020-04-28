@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
+use App\Product;
 use Illuminate\Http\Request;
 
 class AdminProductsController extends Controller
@@ -14,6 +16,10 @@ class AdminProductsController extends Controller
     public function index()
     {
         //
+        $brands = Brand::all();
+        $products = Product::with(['category','brand','photo'])->get();
+        return view('admin.products.index', compact('products', 'brands'));
+
     }
 
     /**
@@ -80,5 +86,10 @@ class AdminProductsController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function productsPerBrand($id){
+        $brands = Brand::all();
+        $products = Product::with(['category','brand','photo'])->where('brand_id', '=', $id)->get();
+        return view('admin.products.index', compact('products', 'brands'));
     }
 }

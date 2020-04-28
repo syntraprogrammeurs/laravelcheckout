@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5e2dee8c-a1f5-4a97-baf6-62f95bf8f192" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminProductsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/products/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/products/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -166,6 +169,7 @@
       <workItem from="1587966576711" duration="3769000" />
       <workItem from="1587972519817" duration="10365000" />
       <workItem from="1588004566066" duration="911000" />
+      <workItem from="1588054227497" duration="2098000" />
     </task>
     <servers />
   </component>
@@ -185,9 +189,9 @@
       <screen x="-1920" y="87" width="1920" height="1040" />
     </state>
     <state x="-1396" y="274" key="FileChooserDialogImpl/0.0.1920.1040/-1920.87.1920.1040@0.0.1920.1040" timestamp="1587973161169" />
-    <state x="668" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1587972522420">
+    <state x="668" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1588054227935">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="668" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.87.1920.1040@0.0.1920.1040" timestamp="1587972522420" />
+    <state x="668" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.87.1920.1040@0.0.1920.1040" timestamp="1588054227935" />
   </component>
 </project>
