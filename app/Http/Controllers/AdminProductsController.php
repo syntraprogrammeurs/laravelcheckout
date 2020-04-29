@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Brand;
+use App\Category;
+use App\Photo;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -30,6 +32,10 @@ class AdminProductsController extends Controller
     public function create()
     {
         //
+        $categories = Category::select('name', 'id')->get();
+        $brands = Brand::select('name', 'id')->get();
+        return view('admin.products.create', compact('brands', 'categories'));
+
     }
 
     /**
@@ -41,6 +47,16 @@ class AdminProductsController extends Controller
     public function store(Request $request)
     {
         //
+        $input = $request->all();
+        if($file= $request->file('photo_id')){
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images/products', $name);
+            $photo = Photo::create(['file'=>$name]);
+            $input['photo_id'] = $photo->id;
+        }
+        Product::create($input);
+        return redirect('/admin/products');
+
     }
 
     /**
