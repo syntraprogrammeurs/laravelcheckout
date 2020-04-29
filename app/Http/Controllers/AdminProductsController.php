@@ -7,6 +7,7 @@ use App\Category;
 use App\Photo;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class AdminProductsController extends Controller
 {
@@ -78,7 +79,11 @@ class AdminProductsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $categories = Category::select('name', 'id')->get();
+        $brands= Brand::select('name', 'id')->get();
+        return view('admin.products.edit', compact('product', 'categories','brands'));
+
     }
 
     /**
@@ -91,6 +96,22 @@ class AdminProductsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $product = Product::findOrFail($id);
+
+        File::delete('images/products/'.$product->photo->file);
+
+        $input = $request->all();
+        if($file = $request->file('photo_id')){
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images/products', $name);
+            //$file->unlink('images/products', $oldImage);
+            $photo = Photo::create(['file'=>$name]);
+            $input['photo_id'] = $photo->id;
+        }
+        $product->update($input);
+        return redirect('/admin/products');
+
+
     }
 
     /**
