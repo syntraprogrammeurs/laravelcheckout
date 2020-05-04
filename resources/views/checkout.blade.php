@@ -21,42 +21,62 @@
                 </h4>
                 <ul class="list-group mb-3">
                     @foreach($cart as $item)
-                    <li class="list-group-item d-flex justify-content-between lh-condensed">
-                        <div>
-                            <h6 class="my-0">{{$item['product_name']}}</h6>
-                            <small class="text-muted">{{Str::limit($item['product_description'], 25 , ' (...)')
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div>
+                                        <h6 class="my-0">{{$item['product_name']}}</h6>
+                                        <div class="d-flex flex-column">
+                                            <small class="text-muted">{{Str::limit($item['product_description'], 25, ' (...)')
                             }}</small>
-                        </div>
-                        <small class="text-muted">Unity Price:{{$item['product_price']}}</small>
-                        <small class="text-muted">Quantity:</small>
-                        <form method="POST" action="{{action('FrontendController@updateQuantity')}}"
-                              enctype="multipart/form-data">
-                            @csrf
-                            @method('POST')
+                                            <small class="text-muted">Unity Price: {{$item['product_price']}}</small>
+                                            <small class="text-muted">Quantity:</small>
+                                            <form method="POST" action="{{action('FrontendController@updateQuantity')}}"
+                                                  enctype="multipart/form-data">
+                                                @csrf
+                                                @method('POST')
 
-                            <input class="form-control form-control-sm" type="number" name="quantity" value="{{$item['quantity']}}"
-                                   min="1" max="100">
-                            <input class="form-control form-control-sm" type="hidden" name="id"
-                                   value="{{$item['product_id']}}">
-                            <button class="btn btn-primary  btn-sm mt-2" type="submit"><i class="fas
+                                                <input class="form-control form-control-sm" type="number" name="quantity" value="{{$item['quantity']}}"
+                                                       min="1" max="100">
+                                                <input class="form-control form-control-sm" type="hidden" name="id"
+                                                       value="{{$item['product_id']}}">
+                                                <button class="btn btn-primary  btn-sm mt-2" type="submit"><i class="fas
                                             fa-euro"></i>
-                                Update price
-                            </button>
-                        </form>
-                    </li>
-                    @endforeach
+                                                    Update price
+                                                </button>
+                                            </form>
+                                        </div>
 
-                    <li class="list-group-item d-flex justify-content-between bg-light">
-                        <div class="text-success">
-                            <h6 class="my-0">Promo code</h6>
-                            <small>EXAMPLECODE</small>
-                        </div>
-                        <span class="text-success">-$5</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-flex flex-column">
+
+                                        <img class="card-img-top img-thumbnail"src="{{$item['product_image'] ? asset
+                            ('/images/products/' .
+                            $item['product_image']) : 'GEEN FOTOMOMENTEEL'}}" alt="">
+                                        <small class="text-muted">Item Subtotal:&euro;
+                                            {{$item['product_price']*$item['quantity']}}</small>
+
+                                       {{-- <a class="text-center" data-toggle="tooltip" data-placement="bottom"
+                                           title="remove product"  href="{{route('removeItem', $item['product_id'])}}"><i
+                                                class="fas fa-times"></i></a>--}}
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+                    @endforeach
+                    <li class="list-group-item d-flex justify-content-center align-items-center">
+                        <small class="text-muted">Total Price:&euro; {{Session::get('cart')
+                ->totalPrice}}</small>
+                        <a class="btn btn-primary float-right ml-3" href="{{route('shop')}}">Verder winkelen</a>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        <span>Total (USD)</span>
-                        <strong>$20</strong>
+                    <li class="list-group-item d-flex justify-content-center align-items-center">
+
+                        <a class="btn btn-primary float-right w-100" href="{{route('shop')}}">Afrekenen</a>
                     </li>
+
                 </ul>
 
                 <form class="card p-2">
