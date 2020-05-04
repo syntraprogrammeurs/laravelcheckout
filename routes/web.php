@@ -25,6 +25,7 @@ Route::get('/products/brand/{id}', 'FrontendController@productsPerBrand')->name(
 Route::get('/products/addToCart/{id}','FrontendController@addToCart')->name('addToCart');
 Route::get('/checkout', 'FrontendController@cart')->name('checkout');
 Route::post('/checkout', 'FrontendController@updateQuantity')->name('quantity');
+Route::get('/removeItem/{id}', 'FrontendController@removeItem')->name('removeItem');
 
 /**backend**/
 Route::get('/admin', function(){

@@ -58,9 +58,9 @@
                                         <small class="text-muted">Item Subtotal:&euro;
                                             {{$item['product_price']*$item['quantity']}}</small>
 
-                                       {{-- <a class="text-center" data-toggle="tooltip" data-placement="bottom"
+                                        <a class="text-center" data-toggle="tooltip" data-placement="bottom"
                                            title="remove product"  href="{{route('removeItem', $item['product_id'])}}"><i
-                                                class="fas fa-times"></i></a>--}}
+                                                class="fas fa-times"></i></a>
                                     </div>
 
                                 </div>

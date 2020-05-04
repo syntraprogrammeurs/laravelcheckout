@@ -52,4 +52,13 @@ class FrontendController extends Controller
 
         return redirect('/checkout');
     }
+    public function removeItem($id){
+        $oldCart = Session::has('cart') ? Session::get('cart'):null;
+        $cart = new Cart($oldCart);
+        $cart->removeItem($id);
+        //(Session('cart'));
+        Session::put('cart', $cart);
+
+        return redirect('/checkout');
+    }
 }
