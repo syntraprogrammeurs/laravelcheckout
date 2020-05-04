@@ -46,6 +46,13 @@
                     <a class="nav-link" href="#">Contact</a>
                 </li>
             </ul>
+            <a href="{{route('checkout')}}">
+                <span class="fa-stack fa-2x" data-count="{{Session::has('cart') ? Session::get('cart')->totalQuantity:
+                '0'}}">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-shopping-cart fa-stack-2x primary-cart"></i>
+                </span>
+            </a>
         </div>
     </div>
 </nav>

@@ -65,10 +65,10 @@
                                 </div>
                                 <div class="card-footer">
                                     <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                                   {{-- <a href="{{route('addToCart', $product->id)}}" class="btn btn-success btn-sm
+                                   <a href="{{route('addToCart', $product->id)}}" class="btn btn-success btn-sm
                                     border-left-primary">
                                         <i class="fas fa-shopping-bag"></i> Add Product
-                                    </a>--}}
+                                    </a>
                                 </div>
                             </div>
                         </div>
